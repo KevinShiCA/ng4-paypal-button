@@ -11,6 +11,7 @@ export class AppComponent implements AfterViewChecked {
   title = 'app';
 
   private didPaypalRender: boolean = false;
+  private loading: boolean = true;
 
   private paypalConfig: any = {
     env: 'sandbox',
@@ -37,6 +38,7 @@ export class AppComponent implements AfterViewChecked {
     if(!this.didPaypalRender) {
       this.loadPaypalScript().then(() => {
         paypal.Button.render(this.paypalConfig, '#paypal-button');
+        this.loading = false;
       });
     }
   }
