@@ -10,7 +10,7 @@ declare let paypal: any;
 export class AppComponent implements AfterViewChecked {
   title = 'app';
 
-  private didPaypalRender: boolean = false;
+  private didPaypalScriptLoad: boolean = false;
   private loading: boolean = true;
 
   private paypalConfig: any = {
@@ -35,7 +35,7 @@ export class AppComponent implements AfterViewChecked {
   };
 
   ngAfterViewChecked() {
-    if(!this.didPaypalRender) {
+    if(!this.didPaypalScriptLoad) {
       this.loadPaypalScript().then(() => {
         paypal.Button.render(this.paypalConfig, '#paypal-button');
         this.loading = false;
@@ -44,7 +44,7 @@ export class AppComponent implements AfterViewChecked {
   }
 
   loadPaypalScript(): Promise<any> {
-    this.didPaypalRender = true;
+    this.didPaypalScriptLoad = true;
     return new Promise((resolve, reject) => {
       const scriptElement = document.createElement('script');
       scriptElement.src = 'https://www.paypalobjects.com/api/checkout.js';
