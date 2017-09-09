@@ -1,4 +1,4 @@
-# Ng4PaypalButton
+# Angular 4 Paypal Checkout
 
 A project demonstrating Angular 4 and Paypal instant checkout integration. Also works with Angular 2.
 

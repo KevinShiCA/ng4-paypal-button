@@ -16,7 +16,7 @@ export class AppComponent implements AfterViewChecked {
   private paypalConfig: any = {
     env: 'sandbox',
     client: {
-      sandbox: 'xxxxxxxxxx',
+      sandbox: 'AWlMGZwpQbS0dq_r2Dt0ejp1TxDm72JD7Pt4Uc2mYlihAE3FU5axxS9wr4HcnVc13gB7TcbYDVLp9Vne',
       production: 'xxxxxxxxxx'
     },
     commit: true,
