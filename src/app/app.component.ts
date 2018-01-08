@@ -32,7 +32,7 @@ export class AppComponent implements AfterViewChecked {
       });
     },
     onAuthorize: (data, actions) => {
-      return actions.payment.execute().then(function(payment) {
+      return actions.payment.execute().then((payment) => {
         // show success page
       });
     }
