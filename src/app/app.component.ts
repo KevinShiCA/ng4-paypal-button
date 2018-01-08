@@ -13,6 +13,8 @@ export class AppComponent implements AfterViewChecked {
   public didPaypalScriptLoad: boolean = false;
   public loading: boolean = true;
 
+  public paymentAmount: number = 0;
+
   public paypalConfig: any = {
     env: 'sandbox',
     client: {
@@ -24,13 +26,15 @@ export class AppComponent implements AfterViewChecked {
       return actions.payment.create({
         payment: {
           transactions: [
-            { amount: { total: '1.00', currency: 'CAD' } }
+            { amount: { total: this.paymentAmount, currency: 'CAD' } }
           ]
         }
       });
     },
     onAuthorize: (data, actions) => {
-      // show success page
+      return actions.payment.execute().then(function(payment) {
+        // show success page
+      });
     }
   };
 
